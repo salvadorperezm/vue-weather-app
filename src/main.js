@@ -6,11 +6,13 @@ import App from "./App.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
+  faArrowsRotate,
   faSliders,
+  faLocationDot,
   faSun,
   faTemperatureHalf,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSliders, faSun, faTemperatureHalf);
+library.add(faArrowsRotate, faSliders, faLocationDot, faSun, faTemperatureHalf);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
