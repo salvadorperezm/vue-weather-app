@@ -21,8 +21,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section__bottom">
-                    <h2>Weather Page Bottom</h2>
+                <div class="section__bottom-container">
+                    <div class="section section__bottom">
+                        <div class="weather__header">
+                            <p class="header__text">Today</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </template>
@@ -48,7 +52,6 @@ export default {
 
 <style scoped>
 .content__section {
-    border: 1px solid blue;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -73,10 +76,17 @@ export default {
     flex-direction: column;
 }
 
+.section__bottom-container {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
 .section__bottom {
+    height: 100%;
+    max-width: 1200px;
     border: 1px solid red;
-    background-color: #fff;
-    overflow: hidden;
 }
 
 .weather__actions,
@@ -119,14 +129,21 @@ export default {
     margin-block-end: 16px;
 }
 
-
-
 .information__feels-like {
     margin-block-end: 8px;
 }
 
 .information__icon {
     width: 192px;
+}
+
+.weather__header {
+    padding: 16px 32px;
+}
+
+.header__text {
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 @media screen and (max-width: 1024px) {
@@ -140,7 +157,8 @@ export default {
     }
 
     .information__feels-like,
-    .information__weather-type {
+    .information__weather-type,
+    .header__text {
         font-size: 12.25px;
     }
 
