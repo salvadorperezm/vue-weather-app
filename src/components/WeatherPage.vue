@@ -26,6 +26,13 @@
                         <div class="weather__header">
                             <p class="header__text">Today</p>
                         </div>
+                        <div class="weather__full-information">
+                            <div v-for="information in currentWeatherFullInformation" :key="information.name"
+                                class="full-information__item">
+                                <p class="item__name">{{ information.name }}</p>
+                                <p class="item__value">{{ information.value }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -44,7 +51,45 @@ export default {
             currentTemperature: '32',
             currentLocation: 'Managua',
             currentFeelsLike: '32',
-            currentWeatherType: 'Scattered clouds'
+            currentWeatherType: 'Scattered clouds',
+            currentWeatherFullInformation: [
+                {
+                    name: "Temp",
+                    value: "22/34"
+                },
+                {
+                    name: "Humidity",
+                    value: "48%"
+                },
+                {
+                    name: "Precipitation",
+                    value: "0% chance"
+                },
+                {
+                    name: "Sunrise",
+                    value: "6:01 am"
+                },
+                {
+                    name: "Sunset",
+                    value: "5:54 pm"
+                },
+                {
+                    name: "Wind",
+                    value: "5.98m/s ENE"
+                },
+                {
+                    name: "Pressure",
+                    value: "1014hPa"
+                },
+                {
+                    name: "Cloud Cov.",
+                    value: "88%"
+                },
+                {
+                    name: "Visibility",
+                    value: "10000m"
+                }
+            ]
         }
     }
 }
@@ -138,12 +183,37 @@ export default {
 }
 
 .weather__header {
-    padding: 16px 32px;
+    padding-inline: 32px;
+    padding-block: 26px 0px;
 }
 
 .header__text {
     text-transform: uppercase;
     font-weight: bold;
+    color: #353539;
+}
+
+.weather__full-information {
+    height: calc(100% - 44px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.full-information__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item__name {
+    color: #9999AA;
+    margin-block-end: 5px;
+}
+
+.item__value {
+    color: #353539;
 }
 
 @media screen and (max-width: 1024px) {
@@ -152,18 +222,21 @@ export default {
         border-top-left-radius: 16px;
     }
 
-    .current-location__text {
-        font-size: 14px;
-    }
-
+    .current-location__text,
     .information__feels-like,
     .information__weather-type,
-    .header__text {
-        font-size: 12.25px;
+    .header__text,
+    .item__name,
+    .item__value {
+        font-size: 14px;
     }
 
     .information__icon {
         width: 96px;
+    }
+
+    .weather__full-information {
+        height: calc(100% - 40px);
     }
 }
 </style>
