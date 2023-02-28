@@ -131,7 +131,6 @@ export default {
 .section__bottom {
     height: 100%;
     max-width: 1200px;
-    border: 1px solid red;
 }
 
 .weather__actions,
@@ -217,9 +216,14 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
+    .section__bottom-container {
+        background-color: #5d9be5;
+    }
+
     .section__bottom {
         border-top-right-radius: 16px;
         border-top-left-radius: 16px;
+        background-color: #ffffff;
     }
 
     .current-location__text,
