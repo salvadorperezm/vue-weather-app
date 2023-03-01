@@ -1,15 +1,9 @@
 <template>
-  <weather-page />
+  <h1>Hello world</h1>
 </template>
 
 <script>
-import WeatherPage from "./components/WeatherPage.vue"
 
-export default {
-  components: {
-    'weather-page': WeatherPage
-  }
-}
 </script>
 
 <style scoped></style>
